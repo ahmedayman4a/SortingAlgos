@@ -1,24 +1,49 @@
 package org.example;
 
-import org.example.Algorithms.Insertion;
+import org.example.Algorithms.InsertionSort;
+import org.example.Algorithms.QuickSort;
+import org.example.Algorithms.CountSort;
 
 public class Main {
     public static void main(String[] args) {
-        Insertion insertion = new Insertion();
-
-        SortingContext sortingContext = new SortingContext(insertion);
+        // test the insertion sort
         int[] arr = { 12, 11, 13, 5, 6 };
-        sortingContext.sort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        InsertionSort insertionSort = new InsertionSort();
+        insertionSort.sort(arr);
+        System.out.println("Insertion Sort");
+        for (int i : arr) {
+            System.out.print(i + " ");
         }
-        int stepNumber = 1;
-        for (int[] step : sortingContext.getSteps()) {
-            System.out.print("Step "+ stepNumber++ + ": ");
-            for (int i = 0; i < step.length; i++) {
-                System.out.print(step[i] + " ");
-            }
-            System.out.println();
+        System.out.println();
+        // test the quick sort
+        int[] arr2 = { 12, 11, 13, 5, 6 };
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(arr2);
+        System.out.println("Quick Sort");
+        for (int i : arr2) {
+            System.out.print(i + " ");
         }
+        System.out.println();
+        // test the count sort
+        int[] arr3 = { 12, 11, 13, 5, 6 };
+        CountSort countSort = new CountSort();
+        countSort.sort(arr3);
+        System.out.println("Count Sort");
+        for (int i : arr3) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        // USE SortingContext
+        SortingContext sortingContext = new SortingContext(new QuickSort());
+        int[] arr4 = { 12, 11, 13, 5, 6 };
+        sortingContext.sort(arr4);
+        System.out.println("Quick Sort");
+        for (int i : arr4) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
     }
+
 }

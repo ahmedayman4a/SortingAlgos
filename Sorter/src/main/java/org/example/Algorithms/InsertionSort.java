@@ -3,7 +3,7 @@ package org.example.Algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Insertion implements SortingAlgorithm {
+public class InsertionSort implements SortingAlgorithm {
     List<int[]> steps = new ArrayList<>();
 
     @Override
