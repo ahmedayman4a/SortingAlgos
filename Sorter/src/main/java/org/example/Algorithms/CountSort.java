@@ -7,6 +7,16 @@ import java.util.List;
 public class CountSort implements  SortingAlgorithm{
     List<int[]> steps = new ArrayList<>();
 
+    private boolean areStepsSaved = false;
+
+    public CountSort() {
+
+    }
+
+    public CountSort(boolean areStepsSaved) {
+        this.areStepsSaved = areStepsSaved;
+    }
+
     @Override
     public void sort(int[] arr) {
 
@@ -22,7 +32,9 @@ public class CountSort implements  SortingAlgorithm{
             while (frequency_array[i] > 0) {
                 arr[index++] = i + min;
                 frequency_array[i]--;
-                steps.add(arr.clone());
+                if (areStepsSaved) {
+                    steps.add(arr.clone());
+                }
             }
         }
 
@@ -32,5 +44,15 @@ public class CountSort implements  SortingAlgorithm{
     @Override
     public List<int[]> getSteps() {
         return steps;
+    }
+
+    @Override
+    public boolean getAreStepsSaved() {
+        return areStepsSaved;
+    }
+
+    @Override
+    public void setAreStepsSaved(boolean areStepsSaved) {
+        this.areStepsSaved = areStepsSaved;
     }
 }
