@@ -5,6 +5,15 @@ import java.util.List;
 
 public class QuickSort implements SortingAlgorithm{
     List<int[]> steps = new ArrayList<>();
+    private boolean areStepsSaved = false;
+
+    public QuickSort() {
+
+    }
+
+    public QuickSort(boolean areStepsSaved) {
+        this.areStepsSaved = areStepsSaved;
+    }
 
     @Override
     public void sort(int[] arr) {
@@ -40,7 +49,19 @@ public class QuickSort implements SortingAlgorithm{
         int temp = arr[i + 1];
         arr[i + 1] = arr[high];
         arr[high] = temp;
-        steps.add(arr.clone());
+        if (areStepsSaved) {
+            steps.add(arr.clone());
+        }
         return i + 1;
+    }
+
+    @Override
+    public boolean getAreStepsSaved() {
+        return areStepsSaved;
+    }
+
+    @Override
+    public void setAreStepsSaved(boolean areStepsSaved) {
+        this.areStepsSaved = areStepsSaved;
     }
 }
