@@ -38,15 +38,15 @@ public class Main {
         SortingContext sortingContext = null;
         String sort = switch (choice) {
             case 1 -> {
-                sortingContext = new SortingContext(new InsertionSort());
+                sortingContext = new SortingContext(new InsertionSort(true));
                 yield "Insertion Sort";
             }
             case 2 -> {
-                sortingContext = new SortingContext(new QuickSort());
+                sortingContext = new SortingContext(new QuickSort(true));
                 yield "Quick Sort";
             }
             case 3 -> {
-                sortingContext = new SortingContext(new CountSort());
+                sortingContext = new SortingContext(new CountSort(true));
                 yield "Count Sort";
             }
             default -> null;
